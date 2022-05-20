@@ -9,12 +9,12 @@ import ru.yandex.praktikum.Account;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
-public class AccountTest {
+public class AccountParameterizedTest {
 
     private final String name;
     private final boolean checkNameToEmbossExpectedResult;
 
-    public AccountTest(String name, boolean checkNameToEmbossExpectedResult) {
+    public AccountParameterizedTest(String name, boolean checkNameToEmbossExpectedResult) {
         this.name = name;
         this.checkNameToEmbossExpectedResult = checkNameToEmbossExpectedResult;
     }
@@ -28,6 +28,10 @@ public class AccountTest {
                 {" " + RandomStringUtils.randomAlphabetic(6), false},
                 {RandomStringUtils.randomAlphabetic(7) + " ", false},
                 {RandomStringUtils.randomAlphabetic(4) + " " + RandomStringUtils.randomAlphabetic(7), true},
+                {RandomStringUtils.randomAlphabetic(1) + " " + RandomStringUtils.randomAlphabetic(1), true},
+                {RandomStringUtils.randomAlphabetic(9) + " " + RandomStringUtils.randomAlphabetic(9), true},
+                {RandomStringUtils.randomAlphabetic(9) + " " + RandomStringUtils.randomAlphabetic(10), false},
+                {"", false},
         };
     }
 
